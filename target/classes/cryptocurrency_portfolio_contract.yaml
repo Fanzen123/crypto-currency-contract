@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: Swagger
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: amir.boussaadia@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: http://localhost:8980/
+  - url: 'https://petstore.swagger.io/v2'
+paths:
+  /item:
+    post:
+      summary: Add a new cryptoCurrency asset
+      operationId: addCryptoCurrencyAsset
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CryptoCurrency'
+      requestBody:
+        $ref: '#/components/requestBodies/CryptoCurrency'
+components:
+  schemas:
+    CryptoCurrency:
+      type: object
+      required:
+        - symbol
+        - location
+        - value
+        - date
+      properties:
+        symbol:
+          type: string
+        location:
+            type: string
+        value:
+          type: integer
+          format: int64
+        date:
+          type: string
+          format: date
+  requestBodies:
+    CryptoCurrency:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CryptoCurrency'
+      description: CryptoCurrency
+      required: true
