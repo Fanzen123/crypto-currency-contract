@@ -1,5 +1,8 @@
-/Users/boussaadia/IdeaProjects/cryptocurrency_portfolio_contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ApiUtil.java
-/Users/boussaadia/IdeaProjects/cryptocurrency_portfolio_contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/dto/CryptoCurrency.java
-/Users/boussaadia/IdeaProjects/cryptocurrency_portfolio_contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ItemApi.java
-/Users/boussaadia/IdeaProjects/cryptocurrency_portfolio_contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ItemApiController.java
-/Users/boussaadia/IdeaProjects/cryptocurrency_portfolio_contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ItemApiDelegate.java
+/Users/boussaadia/IdeaProjects/crypto-currency-contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ApiUtil.java
+/Users/boussaadia/IdeaProjects/crypto-currency-contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ItemApiDelegate.java
+/Users/boussaadia/IdeaProjects/crypto-currency-contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/dto/Symbol.java
+/Users/boussaadia/IdeaProjects/crypto-currency-contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/dto/Location.java
+/Users/boussaadia/IdeaProjects/crypto-currency-contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/dto/CryptoCurrency.java
+/Users/boussaadia/IdeaProjects/crypto-currency-contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ItemApiController.java
+/Users/boussaadia/IdeaProjects/crypto-currency-contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ItemApi.java
+/Users/boussaadia/IdeaProjects/crypto-currency-contract/target/generated-sources/openapi/src/main/java/com/contract/cryptocurrency_portfolio_contract/dto/GlobalCryptoCurrency.java

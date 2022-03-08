@@ -6,6 +6,7 @@
 package com.contract.cryptocurrency_portfolio_contract.api;
 
 import com.contract.cryptocurrency_portfolio_contract.dto.CryptoCurrency;
+import com.contract.cryptocurrency_portfolio_contract.dto.GlobalCryptoCurrency;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -17,7 +18,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-06T20:45:24.448+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-08T23:04:57.410704+01:00[Europe/Paris]")
 @Validated
 @Api(value = "item", description = "the item API")
 public interface ItemApi {
@@ -32,15 +33,15 @@ public interface ItemApi {
      * @param cryptoCurrency CryptoCurrency (required)
      * @return successful operation (status code 200)
      */
-    @ApiOperation(value = "Add a new cryptoCurrency asset", nickname = "addCryptoCurrencyAsset", notes = "", response = CryptoCurrency.class, tags={  })
+    @ApiOperation(value = "Add a new cryptoCurrency asset", nickname = "addCryptoCurrencyAsset", notes = "", response = GlobalCryptoCurrency.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "successful operation", response = CryptoCurrency.class) })
+        @ApiResponse(code = 200, message = "successful operation", response = GlobalCryptoCurrency.class) })
     @PostMapping(
         value = "/item",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    default ResponseEntity<CryptoCurrency> addCryptoCurrencyAsset(@ApiParam(value = "CryptoCurrency" ,required=true )  @Valid @RequestBody CryptoCurrency cryptoCurrency) {
+    default ResponseEntity<GlobalCryptoCurrency> addCryptoCurrencyAsset(@ApiParam(value = "CryptoCurrency" ,required=true )  @Valid @RequestBody CryptoCurrency cryptoCurrency) {
         return getDelegate().addCryptoCurrencyAsset(cryptoCurrency);
     }
 

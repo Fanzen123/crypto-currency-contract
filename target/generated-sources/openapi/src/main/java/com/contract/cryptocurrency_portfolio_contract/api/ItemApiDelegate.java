@@ -1,6 +1,7 @@
 package com.contract.cryptocurrency_portfolio_contract.api;
 
 import com.contract.cryptocurrency_portfolio_contract.dto.CryptoCurrency;
+import com.contract.cryptocurrency_portfolio_contract.dto.GlobalCryptoCurrency;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,7 +17,7 @@ import java.util.Optional;
  * A delegate to be called by the {@link ItemApiController}}.
  * Implement this interface with a {@link org.springframework.stereotype.Service} annotated class.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-06T20:45:24.448+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-08T23:04:57.410704+01:00[Europe/Paris]")
 public interface ItemApiDelegate {
 
     default Optional<NativeWebRequest> getRequest() {
@@ -30,11 +31,11 @@ public interface ItemApiDelegate {
      * @return successful operation (status code 200)
      * @see ItemApi#addCryptoCurrencyAsset
      */
-    default ResponseEntity<CryptoCurrency> addCryptoCurrencyAsset(CryptoCurrency cryptoCurrency) {
+    default ResponseEntity<GlobalCryptoCurrency> addCryptoCurrencyAsset(CryptoCurrency cryptoCurrency) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"date\" : \"2000-01-23\", \"symbol\" : \"symbol\", \"location\" : \"location\", \"value\" : 0 }";
+                    String exampleString = "{ \"amount\" : 6, \"entryDate\" : \"2000-01-23\", \"oldMarketValue\" : 1, \"id\" : 0, \"actualMarketValue\" : 5 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

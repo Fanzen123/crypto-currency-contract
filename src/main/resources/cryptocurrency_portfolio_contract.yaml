@@ -23,7 +23,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CryptoCurrency'
+                $ref: '#/components/schemas/GlobalCryptoCurrency'
       requestBody:
         $ref: '#/components/requestBodies/CryptoCurrency'
 components:
@@ -33,19 +33,59 @@ components:
       required:
         - symbol
         - location
-        - value
+        - amount
         - date
       properties:
         symbol:
-          type: string
+          $ref: '#/components/schemas/Symbol'
         location:
-            type: string
-        value:
+          type: object
+          $ref: '#/components/schemas/Location'
+        amount:
           type: integer
           format: int64
         date:
           type: string
           format: date
+    GlobalCryptoCurrency:
+      type: object
+      required:
+        - symbol
+        - location
+        - value
+        - date
+      properties:
+        id:
+          type: integer
+          format: int64
+        symbol:
+          $ref: '#/components/schemas/Symbol'
+        amount:
+          type: integer
+          format: int64
+        entryDate:
+          type: string
+          format: date
+        location:
+          $ref: '#/components/schemas/Location'
+        oldMarketValue:
+          type: integer
+          format: int64
+        actualMarketValue:
+          type: integer
+          format: int64
+    Symbol:
+      type: string
+      enum:
+        - BITCOIN
+        - ETHERUM
+    Location:
+      type: string
+      enum:
+        - HARDWARE_WALLET
+        - BITFINEX
+        - BISTAMP
+
   requestBodies:
     CryptoCurrency:
       content:

@@ -3,7 +3,7 @@ package com.contract.cryptocurrency_portfolio_contract.api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-06T20:45:24.448+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-08T23:04:57.410704+01:00[Europe/Paris]")
 @Controller
 @RequestMapping("${openapi.swagger.base-path:}")
 public class ItemApiController implements ItemApi {

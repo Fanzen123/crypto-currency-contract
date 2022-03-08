@@ -3,3 +3,6 @@ src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ItemApi.java
 src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ItemApiController.java
 src/main/java/com/contract/cryptocurrency_portfolio_contract/api/ItemApiDelegate.java
 src/main/java/com/contract/cryptocurrency_portfolio_contract/dto/CryptoCurrency.java
+src/main/java/com/contract/cryptocurrency_portfolio_contract/dto/GlobalCryptoCurrency.java
+src/main/java/com/contract/cryptocurrency_portfolio_contract/dto/Location.java
+src/main/java/com/contract/cryptocurrency_portfolio_contract/dto/Symbol.java
