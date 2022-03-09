@@ -17,7 +17,7 @@ import java.util.Optional;
  * A delegate to be called by the {@link ItemApiController}}.
  * Implement this interface with a {@link org.springframework.stereotype.Service} annotated class.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-08T23:04:57.410704+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-09T09:48:07.288+01:00[Europe/Paris]")
 public interface ItemApiDelegate {
 
     default Optional<NativeWebRequest> getRequest() {

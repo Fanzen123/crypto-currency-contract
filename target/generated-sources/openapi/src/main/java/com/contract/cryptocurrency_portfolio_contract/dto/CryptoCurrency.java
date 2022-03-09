@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * CryptoCurrency
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-08T23:04:57.410704+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-09T09:48:07.288+01:00[Europe/Paris]")
 public class CryptoCurrency   {
   @JsonProperty("symbol")
   private Symbol symbol;
