@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * GlobalCryptoCurrency
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-09T09:48:07.288+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-12T17:26:38.123+01:00[Europe/Paris]")
 public class GlobalCryptoCurrency   {
   @JsonProperty("id")
   private Long id;
@@ -24,7 +24,7 @@ public class GlobalCryptoCurrency   {
   private Symbol symbol;
 
   @JsonProperty("amount")
-  private Long amount;
+  private Double amount;
 
   @JsonProperty("entryDate")
   @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE)
@@ -34,10 +34,10 @@ public class GlobalCryptoCurrency   {
   private Location location;
 
   @JsonProperty("oldMarketValue")
-  private Long oldMarketValue;
+  private Double oldMarketValue;
 
   @JsonProperty("actualMarketValue")
-  private Long actualMarketValue;
+  private Double actualMarketValue;
 
   public GlobalCryptoCurrency id(Long id) {
     this.id = id;
@@ -48,7 +48,8 @@ public class GlobalCryptoCurrency   {
    * Get id
    * @return id
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
   public Long getId() {
@@ -81,7 +82,7 @@ public class GlobalCryptoCurrency   {
     this.symbol = symbol;
   }
 
-  public GlobalCryptoCurrency amount(Long amount) {
+  public GlobalCryptoCurrency amount(Double amount) {
     this.amount = amount;
     return this;
   }
@@ -90,14 +91,15 @@ public class GlobalCryptoCurrency   {
    * Get amount
    * @return amount
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
-  public Long getAmount() {
+  public Double getAmount() {
     return amount;
   }
 
-  public void setAmount(Long amount) {
+  public void setAmount(Double amount) {
     this.amount = amount;
   }
 
@@ -110,7 +112,8 @@ public class GlobalCryptoCurrency   {
    * Get entryDate
    * @return entryDate
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
   @Valid
 
@@ -144,7 +147,7 @@ public class GlobalCryptoCurrency   {
     this.location = location;
   }
 
-  public GlobalCryptoCurrency oldMarketValue(Long oldMarketValue) {
+  public GlobalCryptoCurrency oldMarketValue(Double oldMarketValue) {
     this.oldMarketValue = oldMarketValue;
     return this;
   }
@@ -153,18 +156,19 @@ public class GlobalCryptoCurrency   {
    * Get oldMarketValue
    * @return oldMarketValue
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
-  public Long getOldMarketValue() {
+  public Double getOldMarketValue() {
     return oldMarketValue;
   }
 
-  public void setOldMarketValue(Long oldMarketValue) {
+  public void setOldMarketValue(Double oldMarketValue) {
     this.oldMarketValue = oldMarketValue;
   }
 
-  public GlobalCryptoCurrency actualMarketValue(Long actualMarketValue) {
+  public GlobalCryptoCurrency actualMarketValue(Double actualMarketValue) {
     this.actualMarketValue = actualMarketValue;
     return this;
   }
@@ -173,14 +177,15 @@ public class GlobalCryptoCurrency   {
    * Get actualMarketValue
    * @return actualMarketValue
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
-  public Long getActualMarketValue() {
+  public Double getActualMarketValue() {
     return actualMarketValue;
   }
 
-  public void setActualMarketValue(Long actualMarketValue) {
+  public void setActualMarketValue(Double actualMarketValue) {
     this.actualMarketValue = actualMarketValue;
   }
 

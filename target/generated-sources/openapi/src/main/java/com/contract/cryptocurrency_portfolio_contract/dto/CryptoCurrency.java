@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -15,7 +14,7 @@ import javax.validation.constraints.*;
 /**
  * CryptoCurrency
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-09T09:48:07.288+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-12T17:26:38.123+01:00[Europe/Paris]")
 public class CryptoCurrency   {
   @JsonProperty("symbol")
   private Symbol symbol;
@@ -24,11 +23,7 @@ public class CryptoCurrency   {
   private Location location;
 
   @JsonProperty("amount")
-  private Long amount;
-
-  @JsonProperty("date")
-  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE)
-  private LocalDate date;
+  private Double amount;
 
   public CryptoCurrency symbol(Symbol symbol) {
     this.symbol = symbol;
@@ -74,7 +69,7 @@ public class CryptoCurrency   {
     this.location = location;
   }
 
-  public CryptoCurrency amount(Long amount) {
+  public CryptoCurrency amount(Double amount) {
     this.amount = amount;
     return this;
   }
@@ -87,34 +82,12 @@ public class CryptoCurrency   {
   @NotNull
 
 
-  public Long getAmount() {
+  public Double getAmount() {
     return amount;
   }
 
-  public void setAmount(Long amount) {
+  public void setAmount(Double amount) {
     this.amount = amount;
-  }
-
-  public CryptoCurrency date(LocalDate date) {
-    this.date = date;
-    return this;
-  }
-
-  /**
-   * Get date
-   * @return date
-  */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-  @Valid
-
-  public LocalDate getDate() {
-    return date;
-  }
-
-  public void setDate(LocalDate date) {
-    this.date = date;
   }
 
 
@@ -129,13 +102,12 @@ public class CryptoCurrency   {
     CryptoCurrency cryptoCurrency = (CryptoCurrency) o;
     return Objects.equals(this.symbol, cryptoCurrency.symbol) &&
         Objects.equals(this.location, cryptoCurrency.location) &&
-        Objects.equals(this.amount, cryptoCurrency.amount) &&
-        Objects.equals(this.date, cryptoCurrency.date);
+        Objects.equals(this.amount, cryptoCurrency.amount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(symbol, location, amount, date);
+    return Objects.hash(symbol, location, amount);
   }
 
   @Override
@@ -146,7 +118,6 @@ public class CryptoCurrency   {
     sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("}");
     return sb.toString();
   }

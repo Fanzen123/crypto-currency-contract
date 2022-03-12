@@ -34,7 +34,6 @@ components:
         - symbol
         - location
         - amount
-        - date
       properties:
         symbol:
           $ref: '#/components/schemas/Symbol'
@@ -42,18 +41,18 @@ components:
           type: object
           $ref: '#/components/schemas/Location'
         amount:
-          type: integer
-          format: int64
-        date:
-          type: string
-          format: date
+          type: number
+          format: double
     GlobalCryptoCurrency:
       type: object
       required:
+        - id
         - symbol
         - location
-        - value
-        - date
+        - amount
+        - entryDate
+        - oldMarketValue
+        - actualMarketValue
       properties:
         id:
           type: integer
@@ -61,24 +60,24 @@ components:
         symbol:
           $ref: '#/components/schemas/Symbol'
         amount:
-          type: integer
-          format: int64
+          type: number
+          format: double
         entryDate:
           type: string
           format: date
         location:
           $ref: '#/components/schemas/Location'
         oldMarketValue:
-          type: integer
-          format: int64
+          type: number
+          format: double
         actualMarketValue:
-          type: integer
-          format: int64
+          type: number
+          format: double
     Symbol:
       type: string
       enum:
         - BITCOIN
-        - ETHERUM
+        - ETHEREUM
     Location:
       type: string
       enum:

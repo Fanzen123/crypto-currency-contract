@@ -15,7 +15,7 @@ public enum Symbol {
   
   BITCOIN("BITCOIN"),
   
-  ETHERUM("ETHERUM");
+  ETHEREUM("ETHEREUM");
 
   private String value;
 

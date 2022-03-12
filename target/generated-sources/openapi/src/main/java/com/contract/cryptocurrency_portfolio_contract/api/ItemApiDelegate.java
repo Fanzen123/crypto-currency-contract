@@ -17,7 +17,7 @@ import java.util.Optional;
  * A delegate to be called by the {@link ItemApiController}}.
  * Implement this interface with a {@link org.springframework.stereotype.Service} annotated class.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-09T09:48:07.288+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-12T17:26:38.123+01:00[Europe/Paris]")
 public interface ItemApiDelegate {
 
     default Optional<NativeWebRequest> getRequest() {
@@ -35,7 +35,7 @@ public interface ItemApiDelegate {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"amount\" : 6, \"entryDate\" : \"2000-01-23\", \"oldMarketValue\" : 1, \"id\" : 0, \"actualMarketValue\" : 5 }";
+                    String exampleString = "{ \"amount\" : 6.027456183070403, \"entryDate\" : \"2000-01-23\", \"oldMarketValue\" : 1.4658129805029452, \"id\" : 0, \"actualMarketValue\" : 5.962133916683182 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
