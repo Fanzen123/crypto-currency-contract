@@ -7,6 +7,7 @@ package com.contract.cryptocurrency_portfolio_contract.api;
 
 import com.contract.cryptocurrency_portfolio_contract.dto.CryptoCurrency;
 import com.contract.cryptocurrency_portfolio_contract.dto.GlobalCryptoCurrency;
+import com.contract.cryptocurrency_portfolio_contract.dto.Symbol;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -18,7 +19,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-12T17:26:38.123+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-12T22:15:50.560+01:00[Europe/Paris]")
 @Validated
 @Api(value = "item", description = "the item API")
 public interface ItemApi {
@@ -43,6 +44,58 @@ public interface ItemApi {
     )
     default ResponseEntity<GlobalCryptoCurrency> addCryptoCurrencyAsset(@ApiParam(value = "CryptoCurrency" ,required=true )  @Valid @RequestBody CryptoCurrency cryptoCurrency) {
         return getDelegate().addCryptoCurrencyAsset(cryptoCurrency);
+    }
+
+
+    /**
+     * DELETE /item/{symbol} : delete cryptoCurrency
+     *
+     * @param symbol Cryptocurrency to delete (required)
+     * @return successful operation (status code 200)
+     */
+    @ApiOperation(value = "delete cryptoCurrency", nickname = "deleteCryptoCurrency", notes = "", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "successful operation") })
+    @DeleteMapping(
+        value = "/item/{symbol}"
+    )
+    default ResponseEntity<Void> deleteCryptoCurrency(@ApiParam(value = "Cryptocurrency to delete",required=true, allowableValues = "\"BITCOIN\", \"ETHEREUM\"") @PathVariable("symbol") Symbol symbol) {
+        return getDelegate().deleteCryptoCurrency(symbol);
+    }
+
+
+    /**
+     * GET /item : get cryptoCurrencies
+     *
+     * @return successful operation (status code 200)
+     */
+    @ApiOperation(value = "get cryptoCurrencies", nickname = "getCryptoCurrencies", notes = "", response = GlobalCryptoCurrency.class, responseContainer = "List", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "successful operation", response = GlobalCryptoCurrency.class, responseContainer = "List") })
+    @GetMapping(
+        value = "/item",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<List<GlobalCryptoCurrency>> getCryptoCurrencies() {
+        return getDelegate().getCryptoCurrencies();
+    }
+
+
+    /**
+     * GET /item/{symbol} : get cryptoCurrency
+     *
+     * @param symbol Cryptocurrency to get (required)
+     * @return successful operation (status code 200)
+     */
+    @ApiOperation(value = "get cryptoCurrency", nickname = "getCryptoCurrency", notes = "", response = GlobalCryptoCurrency.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "successful operation", response = GlobalCryptoCurrency.class) })
+    @GetMapping(
+        value = "/item/{symbol}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<GlobalCryptoCurrency> getCryptoCurrency(@ApiParam(value = "Cryptocurrency to get",required=true, allowableValues = "\"BITCOIN\", \"ETHEREUM\"") @PathVariable("symbol") Symbol symbol) {
+        return getDelegate().getCryptoCurrency(symbol);
     }
 
 }
