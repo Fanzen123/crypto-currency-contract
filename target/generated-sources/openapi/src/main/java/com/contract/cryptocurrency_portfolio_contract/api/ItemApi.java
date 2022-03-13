@@ -6,7 +6,8 @@
 package com.contract.cryptocurrency_portfolio_contract.api;
 
 import com.contract.cryptocurrency_portfolio_contract.dto.CryptoCurrency;
-import com.contract.cryptocurrency_portfolio_contract.dto.GlobalCryptoCurrency;
+import com.contract.cryptocurrency_portfolio_contract.dto.CryptoCurrencyEntry;
+import com.contract.cryptocurrency_portfolio_contract.dto.FullCryptoCurrency;
 import com.contract.cryptocurrency_portfolio_contract.dto.Symbol;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-12T22:15:50.560+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-13T16:42:09.929+01:00[Europe/Paris]")
 @Validated
 @Api(value = "item", description = "the item API")
 public interface ItemApi {
@@ -31,19 +32,19 @@ public interface ItemApi {
     /**
      * POST /item : Add a new cryptoCurrency asset
      *
-     * @param cryptoCurrency CryptoCurrency (required)
+     * @param cryptoCurrencyEntry CryptoCurrency (required)
      * @return successful operation (status code 200)
      */
-    @ApiOperation(value = "Add a new cryptoCurrency asset", nickname = "addCryptoCurrencyAsset", notes = "", response = GlobalCryptoCurrency.class, tags={  })
+    @ApiOperation(value = "Add a new cryptoCurrency asset", nickname = "addCryptoCurrencyAsset", notes = "", response = CryptoCurrency.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "successful operation", response = GlobalCryptoCurrency.class) })
+        @ApiResponse(code = 200, message = "successful operation", response = CryptoCurrency.class) })
     @PostMapping(
         value = "/item",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    default ResponseEntity<GlobalCryptoCurrency> addCryptoCurrencyAsset(@ApiParam(value = "CryptoCurrency" ,required=true )  @Valid @RequestBody CryptoCurrency cryptoCurrency) {
-        return getDelegate().addCryptoCurrencyAsset(cryptoCurrency);
+    default ResponseEntity<CryptoCurrency> addCryptoCurrencyAsset(@ApiParam(value = "CryptoCurrency" ,required=true )  @Valid @RequestBody CryptoCurrencyEntry cryptoCurrencyEntry) {
+        return getDelegate().addCryptoCurrencyAsset(cryptoCurrencyEntry);
     }
 
 
@@ -69,14 +70,14 @@ public interface ItemApi {
      *
      * @return successful operation (status code 200)
      */
-    @ApiOperation(value = "get cryptoCurrencies", nickname = "getCryptoCurrencies", notes = "", response = GlobalCryptoCurrency.class, responseContainer = "List", tags={  })
+    @ApiOperation(value = "get cryptoCurrencies", nickname = "getCryptoCurrencies", notes = "", response = CryptoCurrency.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "successful operation", response = GlobalCryptoCurrency.class, responseContainer = "List") })
+        @ApiResponse(code = 200, message = "successful operation", response = CryptoCurrency.class, responseContainer = "List") })
     @GetMapping(
         value = "/item",
         produces = { "application/json" }
     )
-    default ResponseEntity<List<GlobalCryptoCurrency>> getCryptoCurrencies() {
+    default ResponseEntity<List<CryptoCurrency>> getCryptoCurrencies() {
         return getDelegate().getCryptoCurrencies();
     }
 
@@ -87,15 +88,34 @@ public interface ItemApi {
      * @param symbol Cryptocurrency to get (required)
      * @return successful operation (status code 200)
      */
-    @ApiOperation(value = "get cryptoCurrency", nickname = "getCryptoCurrency", notes = "", response = GlobalCryptoCurrency.class, tags={  })
+    @ApiOperation(value = "get cryptoCurrency", nickname = "getCryptoCurrency", notes = "", response = CryptoCurrency.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "successful operation", response = GlobalCryptoCurrency.class) })
+        @ApiResponse(code = 200, message = "successful operation", response = CryptoCurrency.class) })
     @GetMapping(
         value = "/item/{symbol}",
         produces = { "application/json" }
     )
-    default ResponseEntity<GlobalCryptoCurrency> getCryptoCurrency(@ApiParam(value = "Cryptocurrency to get",required=true, allowableValues = "\"BITCOIN\", \"ETHEREUM\"") @PathVariable("symbol") Symbol symbol) {
+    default ResponseEntity<CryptoCurrency> getCryptoCurrency(@ApiParam(value = "Cryptocurrency to get",required=true, allowableValues = "\"BITCOIN\", \"ETHEREUM\"") @PathVariable("symbol") Symbol symbol) {
         return getDelegate().getCryptoCurrency(symbol);
+    }
+
+
+    /**
+     * PUT /item : update a cryptoCurrency
+     *
+     * @param fullCryptoCurrency FullCryptoCurrency (required)
+     * @return successful operation (status code 200)
+     */
+    @ApiOperation(value = "update a cryptoCurrency", nickname = "updateCryptoCurrency", notes = "", response = FullCryptoCurrency.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "successful operation", response = FullCryptoCurrency.class) })
+    @PutMapping(
+        value = "/item",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<FullCryptoCurrency> updateCryptoCurrency(@ApiParam(value = "FullCryptoCurrency" ,required=true )  @Valid @RequestBody FullCryptoCurrency fullCryptoCurrency) {
+        return getDelegate().updateCryptoCurrency(fullCryptoCurrency);
     }
 
 }

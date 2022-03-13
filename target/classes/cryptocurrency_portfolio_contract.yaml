@@ -43,7 +43,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GlobalCryptoCurrency'
+                $ref: '#/components/schemas/CryptoCurrency'
   /item:
     get:
       summary: get cryptoCurrencies
@@ -56,7 +56,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GlobalCryptoCurrency'
+                  $ref: '#/components/schemas/CryptoCurrency'
     post:
       summary: Add a new cryptoCurrency asset
       operationId: addCryptoCurrencyAsset
@@ -66,12 +66,24 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GlobalCryptoCurrency'
+                $ref: '#/components/schemas/CryptoCurrency'
       requestBody:
-        $ref: '#/components/requestBodies/CryptoCurrency'
+        $ref: '#/components/requestBodies/CryptoCurrencyEntry'
+    put:
+      summary: update a cryptoCurrency
+      operationId: updateCryptoCurrency
+      requestBody:
+        $ref: '#/components/requestBodies/FullCryptoCurrency'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FullCryptoCurrency'
 components:
   schemas:
-    CryptoCurrency:
+    CryptoCurrencyEntry:
       type: object
       required:
         - symbol
@@ -86,7 +98,7 @@ components:
         amount:
           type: number
           format: double
-    GlobalCryptoCurrency:
+    CryptoCurrency:
       type: object
       required:
         - id
@@ -116,6 +128,29 @@ components:
         actualMarketValue:
           type: number
           format: double
+    FullCryptoCurrency:
+      allOf:
+        - $ref: '#/components/schemas/CryptoCurrency'
+        - type: object
+          required:
+            - assets
+          properties:
+            assets:
+              type: array
+              items:
+                $ref: '#/components/schemas/Asset'
+    Asset:
+      type: object
+      required:
+        - number
+        - valueAtTheTimeOfPurchase
+      properties:
+        number:
+          type: number
+          format: double
+        valueAtTheTimeOfPurchase:
+          type: number
+          format: double
     Symbol:
       type: string
       enum:
@@ -129,10 +164,17 @@ components:
         - BISTAMP
 
   requestBodies:
-    CryptoCurrency:
+    CryptoCurrencyEntry:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CryptoCurrency'
+            $ref: '#/components/schemas/CryptoCurrencyEntry'
       description: CryptoCurrency
+      required: true
+    FullCryptoCurrency:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FullCryptoCurrency'
+      description: FullCryptoCurrency
       required: true

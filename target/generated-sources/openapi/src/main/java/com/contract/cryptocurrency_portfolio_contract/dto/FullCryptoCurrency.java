@@ -1,6 +1,9 @@
 package com.contract.cryptocurrency_portfolio_contract.dto;
 
 import java.util.Objects;
+import com.contract.cryptocurrency_portfolio_contract.dto.Asset;
+import com.contract.cryptocurrency_portfolio_contract.dto.CryptoCurrency;
+import com.contract.cryptocurrency_portfolio_contract.dto.FullCryptoCurrencyAllOf;
 import com.contract.cryptocurrency_portfolio_contract.dto.Location;
 import com.contract.cryptocurrency_portfolio_contract.dto.Symbol;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,15 +11,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * GlobalCryptoCurrency
+ * FullCryptoCurrency
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-12T22:15:50.560+01:00[Europe/Paris]")
-public class GlobalCryptoCurrency   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-03-13T16:42:09.929+01:00[Europe/Paris]")
+public class FullCryptoCurrency   {
   @JsonProperty("id")
   private Long id;
 
@@ -39,7 +44,11 @@ public class GlobalCryptoCurrency   {
   @JsonProperty("actualMarketValue")
   private Double actualMarketValue;
 
-  public GlobalCryptoCurrency id(Long id) {
+  @JsonProperty("assets")
+  @Valid
+  private List<Asset> assets = new ArrayList<>();
+
+  public FullCryptoCurrency id(Long id) {
     this.id = id;
     return this;
   }
@@ -60,7 +69,7 @@ public class GlobalCryptoCurrency   {
     this.id = id;
   }
 
-  public GlobalCryptoCurrency symbol(Symbol symbol) {
+  public FullCryptoCurrency symbol(Symbol symbol) {
     this.symbol = symbol;
     return this;
   }
@@ -82,7 +91,7 @@ public class GlobalCryptoCurrency   {
     this.symbol = symbol;
   }
 
-  public GlobalCryptoCurrency amount(Double amount) {
+  public FullCryptoCurrency amount(Double amount) {
     this.amount = amount;
     return this;
   }
@@ -103,7 +112,7 @@ public class GlobalCryptoCurrency   {
     this.amount = amount;
   }
 
-  public GlobalCryptoCurrency entryDate(LocalDate entryDate) {
+  public FullCryptoCurrency entryDate(LocalDate entryDate) {
     this.entryDate = entryDate;
     return this;
   }
@@ -125,7 +134,7 @@ public class GlobalCryptoCurrency   {
     this.entryDate = entryDate;
   }
 
-  public GlobalCryptoCurrency location(Location location) {
+  public FullCryptoCurrency location(Location location) {
     this.location = location;
     return this;
   }
@@ -147,7 +156,7 @@ public class GlobalCryptoCurrency   {
     this.location = location;
   }
 
-  public GlobalCryptoCurrency oldMarketValue(Double oldMarketValue) {
+  public FullCryptoCurrency oldMarketValue(Double oldMarketValue) {
     this.oldMarketValue = oldMarketValue;
     return this;
   }
@@ -168,7 +177,7 @@ public class GlobalCryptoCurrency   {
     this.oldMarketValue = oldMarketValue;
   }
 
-  public GlobalCryptoCurrency actualMarketValue(Double actualMarketValue) {
+  public FullCryptoCurrency actualMarketValue(Double actualMarketValue) {
     this.actualMarketValue = actualMarketValue;
     return this;
   }
@@ -189,6 +198,33 @@ public class GlobalCryptoCurrency   {
     this.actualMarketValue = actualMarketValue;
   }
 
+  public FullCryptoCurrency assets(List<Asset> assets) {
+    this.assets = assets;
+    return this;
+  }
+
+  public FullCryptoCurrency addAssetsItem(Asset assetsItem) {
+    this.assets.add(assetsItem);
+    return this;
+  }
+
+  /**
+   * Get assets
+   * @return assets
+  */
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+
+  @Valid
+
+  public List<Asset> getAssets() {
+    return assets;
+  }
+
+  public void setAssets(List<Asset> assets) {
+    this.assets = assets;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -198,25 +234,26 @@ public class GlobalCryptoCurrency   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GlobalCryptoCurrency globalCryptoCurrency = (GlobalCryptoCurrency) o;
-    return Objects.equals(this.id, globalCryptoCurrency.id) &&
-        Objects.equals(this.symbol, globalCryptoCurrency.symbol) &&
-        Objects.equals(this.amount, globalCryptoCurrency.amount) &&
-        Objects.equals(this.entryDate, globalCryptoCurrency.entryDate) &&
-        Objects.equals(this.location, globalCryptoCurrency.location) &&
-        Objects.equals(this.oldMarketValue, globalCryptoCurrency.oldMarketValue) &&
-        Objects.equals(this.actualMarketValue, globalCryptoCurrency.actualMarketValue);
+    FullCryptoCurrency fullCryptoCurrency = (FullCryptoCurrency) o;
+    return Objects.equals(this.id, fullCryptoCurrency.id) &&
+        Objects.equals(this.symbol, fullCryptoCurrency.symbol) &&
+        Objects.equals(this.amount, fullCryptoCurrency.amount) &&
+        Objects.equals(this.entryDate, fullCryptoCurrency.entryDate) &&
+        Objects.equals(this.location, fullCryptoCurrency.location) &&
+        Objects.equals(this.oldMarketValue, fullCryptoCurrency.oldMarketValue) &&
+        Objects.equals(this.actualMarketValue, fullCryptoCurrency.actualMarketValue) &&
+        Objects.equals(this.assets, fullCryptoCurrency.assets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, symbol, amount, entryDate, location, oldMarketValue, actualMarketValue);
+    return Objects.hash(id, symbol, amount, entryDate, location, oldMarketValue, actualMarketValue, assets);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GlobalCryptoCurrency {\n");
+    sb.append("class FullCryptoCurrency {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
@@ -225,6 +262,7 @@ public class GlobalCryptoCurrency   {
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    oldMarketValue: ").append(toIndentedString(oldMarketValue)).append("\n");
     sb.append("    actualMarketValue: ").append(toIndentedString(actualMarketValue)).append("\n");
+    sb.append("    assets: ").append(toIndentedString(assets)).append("\n");
     sb.append("}");
     return sb.toString();
   }
